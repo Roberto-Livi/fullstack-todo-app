@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class ListTodos extends Component {
 
     state = {
-        todo: [
+        todos: [
             {id: 1, description: "Obtain AWS Developer Cert"},
             {id: 2, description: "Go to Cancun"},
             {id: 3, description: "Visit Japan"}
