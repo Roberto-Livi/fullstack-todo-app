@@ -5,3 +5,5 @@ const Error = () => {
         <div>An Error Occurred. I don't know what to do! Contact support at .....</div>
     )
 }
+
+export default Error
