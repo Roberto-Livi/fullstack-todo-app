@@ -17,7 +17,7 @@ class Login extends Component {
 
     loginClicked = () => {
         if(this.state.username === 'robbie' && this.state.password === 'loslobos'){
-            this.props.history.push(`/todos}`)
+            this.props.history.push(`/welcome/${this.state.username}`)
             // this.setState({ showSuccessMessage: true })
             // this.setState({ hasLoginFailed: false})
         } else {
@@ -30,11 +30,14 @@ class Login extends Component {
     render() {
         return(
             <div>
-            {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
-            {this.state.showSuccessMessage && <div>Login Successful</div>}
-                Username: <input type="text" name="username" value={this.state.username} onChange={(e) => this.handleChange(e)} />
-                Password: <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
-                <button onClick={this.loginClicked}>Login</button>
+                <h1>Login</h1>
+                <div className="container">
+                {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
+                {this.state.showSuccessMessage && <div>Login Successful</div>}
+                    Username: <input type="text" name="username" value={this.state.username} onChange={(e) => this.handleChange(e)} />
+                    Password: <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
+                    <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
+                </div>
             </div>
         )
     }
