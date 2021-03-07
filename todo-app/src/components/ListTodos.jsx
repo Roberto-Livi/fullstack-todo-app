@@ -4,9 +4,9 @@ class ListTodos extends Component {
 
     state = {
         todos: [
-            {id: 1, description: "Obtain AWS Developer Cert"},
-            {id: 2, description: "Go to Cancun"},
-            {id: 3, description: "Visit Japan"}
+            {id: 1, description: "Obtain AWS Developer Cert", done: false, targetDate: new Date()},
+            {id: 2, description: "Go to Cancun", done: false, targetDate: new Date()},
+            {id: 3, description: "Visit Japan", done: false, targetDate: new Date()}
         ]
     }
     render() {
@@ -18,6 +18,8 @@ class ListTodos extends Component {
                         <tr>
                             <th>id</th>
                             <th>description</th>
+                            <th>Completed</th>
+                            <th>Target Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +28,8 @@ class ListTodos extends Component {
                         <tr>
                             <td>{todo.id}</td>
                             <td>{todo.description}</td>
+                            <td>{todo.done.toString()}</td>
+                            <td>{todo.targetDate.toString()}</td>
                         </tr>
                         )}
                     </tbody>

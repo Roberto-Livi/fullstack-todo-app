@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Login from './Login'
+import Welcome from './Welcome'
 import ListTodos from './ListTodos'
 import Error from './Error'
 
@@ -12,6 +13,7 @@ class TodoApp extends Component {
                     <Switch>
                         <Route path="/" exact component={Login} />
                         <Route path="/login" component={Login} />
+                        <Route path="/welcome/:name" component={Welcome} />
                         <Route path="/todos" component={ListTodos} />
                         <Route component={Error} />
                     </Switch>
