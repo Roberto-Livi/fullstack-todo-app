@@ -14,6 +14,7 @@ class TodoApp extends Component {
                 <Router>
                     <Header />
                     <Switch>
+                    <ListTodos />
                         <Route path="/" exact component={Login} />
                         <Route path="/login" component={Login} />
                         <Route path="/welcome/:name" component={Welcome} />
