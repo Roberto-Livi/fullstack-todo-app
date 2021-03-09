@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import HelloWorldService from '../api/HelloWorldService.js'
 
 class Welcome extends Component {
 
     retrieveWelcomeMessage = () => {
-            console.log("retrieve clicked");
-        }
+            HelloWorldService.executedHelloWorldService()
+            .then(response => console.log(response))
+    }
     render() {
         return(
             <>
