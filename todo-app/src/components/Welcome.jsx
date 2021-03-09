@@ -12,7 +12,10 @@ class Welcome extends Component {
             // HelloWorldService.executedHelloWorldService()
             // .then(response => this.handleSuccessfulResponse(response))
 
-            HelloWorldService.executedHelloWorldBeanService()
+            // HelloWorldService.executedHelloWorldBeanService()
+            // .then(response => this.handleSuccessfulResponse(response))
+
+            HelloWorldService.executedHelloWorldPathVariableService(this.props.match.params.name)
             .then(response => this.handleSuccessfulResponse(response))
     }
 
