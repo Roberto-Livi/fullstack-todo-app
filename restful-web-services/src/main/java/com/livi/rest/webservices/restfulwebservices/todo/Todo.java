@@ -1,20 +1,21 @@
 package com.livi.rest.webservices.restfulwebservices.todo;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Todo {
 
     private long id;
     private String username;
     private String description;
-    private Date targetsDate;
+    private Date targetDate;
     private boolean isDone;
 
-    public Todo(long id, String username, String description, Date targetsDate, boolean isDone) {
+    public Todo(long id, String username, String description, Date targetDate, boolean isDone) {
         this.id = id;
         this.username = username;
         this.description = description;
-        this.targetsDate = targetsDate;
+        this.targetDate = targetDate;
         this.isDone = isDone;
     }
 
@@ -42,12 +43,12 @@ public class Todo {
         this.description = description;
     }
 
-    public Date getTargetsDate() {
-        return targetsDate;
+    public Date getTargetDate() {
+        return targetDate;
     }
 
-    public void setTargetsDate(Date targetsDate) {
-        this.targetsDate = targetsDate;
+    public void setTargetDate(Date targetsDate) {
+        this.targetDate = targetsDate;
     }
 
     public boolean isDone() {
@@ -56,5 +57,18 @@ public class Todo {
 
     public void setDone(boolean done) {
         isDone = done;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Todo todo = (Todo) o;
+        return id == todo.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
