@@ -5,14 +5,26 @@ import AuthenticationService from './AuthenticationService.js'
 class ListTodos extends Component {
 
     state = {
-        todos: [
-            // {id: 1, description: "Obtain AWS Developer Cert", done: false, targetDate: new Date()},
-            // {id: 2, description: "Go to Cancun", done: false, targetDate: new Date()},
-            // {id: 3, description: "Visit Japan", done: false, targetDate: new Date()}
-        ]
+        todos: [],
+        message: null
     }
 
     componentDidMount() {
+        this.refreshTodos()
+    }
+
+    deleteTodoClicked = (id) => {
+        let username = AuthenticationService.getLoggedInUsername()
+        TodoDataService.deleteTodo(username, id)
+            .then(
+                response => {
+                    this.setState({message: `Delete of todo ${id}`})
+                    this.refreshTodos()
+                }
+            )
+    }
+
+    refreshTodos = () => {
         let username = AuthenticationService.getLoggedInUsername
         TodoDataService.retrieveAllTodos(username)
         .then(
@@ -25,13 +37,15 @@ class ListTodos extends Component {
         return(
             <div>
                 <h1>List Todos</h1>
+                {this.state.message && <div className="alert alert-success">{this.state.message} Successful</div>}
                 <div className="container">
                     <table className="table">
                         <thead>
                             <tr>
                                 <th>Description</th>
-                                <th>Completed</th>
                                 <th>Target Date</th>
+                                <th>Completed</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,6 +55,7 @@ class ListTodos extends Component {
                                 <td>{todo.description}</td>
                                 <td>{todo.done.toString()}</td>
                                 <td>{todo.targetDate.toString()}</td>
+                                <td><button onClick={() => this.deleteTodoClicked(todo.id)} className="btn btn-warning">Delete</button></td>
                             </tr>
                             )}
                         </tbody>
