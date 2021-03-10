@@ -7,6 +7,7 @@ import ListTodos from './ListTodos'
 import Error from './Error'
 import Header from './Header'
 import Footer from './Footer'
+import Todo from './Todo'
 import AuthenticatedRoute from './AuthenticatedRoute'
 
 class TodoApp extends Component {
@@ -19,6 +20,7 @@ class TodoApp extends Component {
                         <Route path="/" exact component={Login} />
                         <Route path="/login" component={Login} />
                         <AuthenticatedRoute path="/welcome/:name" component={Welcome} />
+                        <AuthenticatedRoute path="/todos/:id" component={Todo} />
                         <AuthenticatedRoute path="/todos" component={ListTodos} />
                         <AuthenticatedRoute path="/logout" component={Logout} />
                         <Route component={Error} />

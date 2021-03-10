@@ -24,6 +24,10 @@ class ListTodos extends Component {
             )
     }
 
+    updateTodoClicked = (id) => {
+        this.props.history.push(`/todos/${id}`);
+    }
+
     refreshTodos = () => {
         let username = AuthenticationService.getLoggedInUsername
         TodoDataService.retrieveAllTodos(username)
@@ -45,6 +49,7 @@ class ListTodos extends Component {
                                 <th>Description</th>
                                 <th>Target Date</th>
                                 <th>Completed</th>
+                                <th>Update</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -55,6 +60,7 @@ class ListTodos extends Component {
                                 <td>{todo.description}</td>
                                 <td>{todo.done.toString()}</td>
                                 <td>{todo.targetDate.toString()}</td>
+                                <td><button onClick={() => this.updateTodoClicked(todo.id)} className="btn btn-success">Update</button></td>
                                 <td><button onClick={() => this.deleteTodoClicked(todo.id)} className="btn btn-warning">Delete</button></td>
                             </tr>
                             )}
