@@ -29,6 +29,10 @@ class ListTodos extends Component {
         this.props.history.push(`/todos/${id}`);
     }
 
+    addTodoClicked = () => {
+        this.props.history.push(`/todos/-1`);
+    }
+
     refreshTodos = () => {
         let username = AuthenticationService.getLoggedInUsername
         TodoDataService.retrieveAllTodos(username)
@@ -67,6 +71,9 @@ class ListTodos extends Component {
                             )}
                         </tbody>
                     </table>
+                    <div className="row">
+                        <button className="btn btn-success" onClick={this.addTodoClicked}>Add</button>
+                    </div>
                 </div>
             </div>
         )
