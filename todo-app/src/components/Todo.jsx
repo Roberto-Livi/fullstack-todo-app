@@ -9,12 +9,20 @@ class Todo extends Component {
         description: "Learn Forms",
         targetDate: moment(new Date()).format('YYYY-MM-DD')
     }
+
+    onSubmit = (values) => {
+        console.log(values)
+    }
     render(){
+        let {description, targetDate} = this.state
         return(
             <div>
                 <h1>Todo</h1>
                 <div className="container">
-                    <Formik>
+                    <Formik
+                        initialValues={{description, targetDate}}
+                        onSubmit={this.onSubmit}
+                    >
                         {
                             (props) => (
                                 <Form>
