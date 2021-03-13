@@ -34,7 +34,7 @@ class ListTodos extends Component {
     }
 
     refreshTodos = () => {
-        let username = AuthenticationService.getLoggedInUsername
+        let username = AuthenticationService.getLoggedInUsername()
         TodoDataService.retrieveAllTodos(username)
         .then(
             response => {
