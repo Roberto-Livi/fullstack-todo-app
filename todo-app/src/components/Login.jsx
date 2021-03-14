@@ -17,17 +17,17 @@ class Login extends Component {
     }
 
     loginClicked = () => {
-        if(this.state.username === 'livi' && this.state.password === 'l'){
-            const { username, password } = this.state
+        let {username, password} = this.state
+        AuthenticationService.executeBasicAuthenticationService(username, password)
+        .then(() => {
             AuthenticationService.registerSuccessfulLogin(username, password);
             this.props.history.push(`/welcome/${username}`)
-            // this.setState({ showSuccessMessage: true })
-            // this.setState({ hasLoginFailed: false})
-        } else {
+        })
+        .catch(() => {
             console.log('failed')
             this.setState({ showSuccessMessage: false})
             this.setState({ hasLoginFailed: true })
-        }
+        })
     }
 
     render() {
