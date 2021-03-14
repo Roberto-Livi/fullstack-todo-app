@@ -1,4 +1,4 @@
-package com.livi.rest.webservices.restfulwebservices.jwt.resources;
+package com.livi.rest.webservices.restfulwebservices.jwt.resource;
 
 import com.livi.rest.webservices.restfulwebservices.jwt.JwtTokenUtil;
 import com.livi.rest.webservices.restfulwebservices.jwt.JwtUserDetails;

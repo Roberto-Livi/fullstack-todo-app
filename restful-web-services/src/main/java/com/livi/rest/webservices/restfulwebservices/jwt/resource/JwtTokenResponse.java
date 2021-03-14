@@ -1,4 +1,4 @@
-package com.livi.rest.webservices.restfulwebservices.jwt.resources;
+package com.livi.rest.webservices.restfulwebservices.jwt.resource;
 
 import java.io.Serializable;
 

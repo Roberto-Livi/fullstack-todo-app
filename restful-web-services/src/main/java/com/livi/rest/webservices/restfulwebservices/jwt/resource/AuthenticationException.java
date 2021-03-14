@@ -1,4 +1,4 @@
-package com.livi.rest.webservices.restfulwebservices.jwt.resources;
+package com.livi.rest.webservices.restfulwebservices.jwt.resource;
 
 public class AuthenticationException extends RuntimeException {
     public AuthenticationException(String message, Throwable cause) {
