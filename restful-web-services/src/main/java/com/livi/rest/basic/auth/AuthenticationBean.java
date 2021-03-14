@@ -1,4 +1,4 @@
-package com.livi.rest.webservices.restfulwebservices.auth;
+package com.livi.rest.basic.auth;
 
 public class AuthenticationBean {
 

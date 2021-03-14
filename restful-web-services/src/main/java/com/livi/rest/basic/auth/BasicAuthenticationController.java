@@ -1,4 +1,4 @@
-package com.livi.rest.webservices.restfulwebservices.auth;
+package com.livi.rest.basic.auth;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
