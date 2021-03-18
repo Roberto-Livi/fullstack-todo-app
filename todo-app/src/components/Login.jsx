@@ -18,9 +18,20 @@ class Login extends Component {
 
     loginClicked = () => {
         let {username, password} = this.state
-        AuthenticationService.executeBasicAuthenticationService(username, password)
-        .then(() => {
-            AuthenticationService.registerSuccessfulLogin(username, password);
+        // AuthenticationService.executeBasicAuthenticationService(username, password)
+        // .then(() => {
+        //     AuthenticationService.registerSuccessfulLogin(username, password);
+        //     this.props.history.push(`/welcome/${username}`)
+        // })
+        // .catch(() => {
+        //     console.log('failed')
+        //     this.setState({ showSuccessMessage: false})
+        //     this.setState({ hasLoginFailed: true })
+        // })
+
+        AuthenticationService.executeJwtAuthenticationService(username, password)
+        .then((response) => {
+            AuthenticationService.registerSuccessfulLoginForJwt(username, response.data.token);
             this.props.history.push(`/welcome/${username}`)
         })
         .catch(() => {
